@@ -298,10 +298,8 @@ export default function App() {
         </section>
 
         <div className="feature-cover" aria-hidden="true" />
-      </main>
 
-      <div className="feature-band">
-<section className="feature-strip" aria-label="Website benefits">
+        <section className="feature-strip" aria-label="Website benefits">
           {features.map(({ title, detail, Icon }) => (
             <article className="feature" key={title}>
               <span className="feature-icon">
@@ -314,7 +312,7 @@ export default function App() {
             </article>
           ))}
         </section>
-      </div>
+      </main>
 
       {modal && <Modal type={modal} onClose={() => setModal(null)} />}
     </div>
