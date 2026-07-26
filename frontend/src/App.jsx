@@ -157,10 +157,9 @@ function Modal({ type, onClose, submitted, setSubmitted }) {
 
             {submitted ? (
               <div className="success-message">
-                <strong>Thanks—your message is ready.</strong>
+                <strong>Thanks—your enquiry has been received.</strong>
                 <p>
-                  The form interface is working. Backend delivery will be
-                  connected during the next build phase.
+                  We’ll review your project details and get back to you as soon as possible.
                 </p>
               </div>
             ) : (
