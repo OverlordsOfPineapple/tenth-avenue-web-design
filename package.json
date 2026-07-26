@@ -5,6 +5,12 @@
   "scripts": {
     "dev": "npm run dev --prefix frontend",
     "build": "npm run build --prefix frontend",
-    "install:all": "npm install && npm install --prefix frontend"
+    "install:all": "npm install && npm install --prefix frontend",
+    "check": "npm run build --prefix frontend && node --check functions/_shared.js && node --check functions/api/contact.js && node --check functions/api/quote.js",
+    "pages:dev": "npm run build --prefix frontend && wrangler pages dev frontend/dist",
+    "pages:deploy": "npm run build --prefix frontend && wrangler pages deploy frontend/dist"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
   }
 }

@@ -1,0 +1,8 @@
+name = "tenth-avenue-web-design"
+compatibility_date = "2026-07-26"
+pages_build_output_dir = "frontend/dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "tenth-avenue-leads"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"

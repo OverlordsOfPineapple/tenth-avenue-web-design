@@ -1,0 +1,17 @@
+{
+  "name": "Tenth Avenue Web Design",
+  "short_name": "Tenth Avenue",
+  "description": "Web design and development for Central Coast NSW businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#08080b",
+  "theme_color": "#fa1472",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

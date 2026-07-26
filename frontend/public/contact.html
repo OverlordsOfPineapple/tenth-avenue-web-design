@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact Tenth Avenue Web Design | Central Coast NSW</title>
+  <meta name="description" content="Contact Tenth Avenue Web Design in Budgewoi for web design, development, e-commerce and SEO services across the Central Coast and NSW.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://tenthavenuewebdesign.com.au/contact.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/seo-pages.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ContactPage", "name": "Contact Tenth Avenue Web Design", "url": "https://tenthavenuewebdesign.com.au/contact.html", "mainEntity": {"@id": "https://tenthavenuewebdesign.com.au/#business"}, "inLanguage": "en-AU"}</script>
+<style>
+.form-honeypot {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+<header class="site-top"><a class="logo" href="/"><span>X</span> Tenth Avenue Web Design</a><nav aria-label="Primary navigation"><a href="/">Home</a><a href="/services.html">Services</a><a href="/portfolio.html">Portfolio</a><a href="/about.html">About</a><a href="/process.html">Process</a><a href="/contact.html">Contact</a></nav></header>
+<main id="content">
+  <p class="eyebrow">Contact</p>
+  <h1>Tell us what you need your website to do</h1>
+  <p class="lead">Call directly or send the project details below. Include the business goal, required features and any preferred launch timing.</p>
+  <p><a class="phone" href="tel:+61430535096">(+61) 430 535 096</a></p>
+  <form id="contact-form">
+    <label>Name<input name="name" autocomplete="name" required></label>
+    <label>Email<input name="email" type="email" autocomplete="email" required></label>
+    <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
+    <label>Project details<textarea name="message" rows="7" required></textarea></label>
+
+    <div class="form-honeypot" aria-hidden="true">
+      <label>Website<input name="website" tabindex="-1" autocomplete="off"></label>
+    </div>
+    <button class="button" type="submit">Send enquiry</button>
+    <p class="status" id="form-status" role="status" aria-live="polite"></p>
+  </form>
+</main>
+<footer><strong>Tenth Avenue Web Design</strong> · Budgewoi, Central Coast NSW 2262 · <a href="tel:+61430535096">(+61) 430 535 096</a> <a href="/privacy.html">Privacy</a></footer>
+<script>
+const form = document.querySelector('#contact-form');
+const status = document.querySelector('#form-status');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+  status.textContent = 'Sending…';
+  const payload = Object.fromEntries(new FormData(form));
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(payload)
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(result.error || 'The enquiry could not be sent.');
+    form.reset();
+    status.textContent = 'Thanks—your enquiry has been received.';
+  } catch (error) {
+    status.textContent = error.message + ' Please call ' + "(+61) 430 535 096" + '.';
+  }
+});
+</script>
+</body>
+</html>
