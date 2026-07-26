@@ -25,45 +25,45 @@ const features = [
   {
     icon: <LightningFeatureIcon />,
     title: "Fast Loading",
-    text: "Optimised for speed",
+    text: "Quick by design",
   },
   {
     icon: "▣",
     title: "Fully Responsive",
-    text: "Perfect on every device",
+    text: "Natural on every screen",
   },
   {
     icon: "◆",
     title: "SEO Optimised",
-    text: "Rank higher, get found",
+    text: "Built to be discovered",
   },
   {
     icon: "</>",
     title: "Clean Code",
-    text: "Built for performance",
+    text: "Made to last",
   },
 ];
 
 const modalContent = {
   services: {
-    eyebrow: "Digital capabilities",
-    title: "Web systems built for speed and scale",
-    text: "We design responsive interfaces, develop reliable full-stack platforms, integrate APIs, automate business workflows, optimise technical SEO and engineer every build for fast, stable performance.",
+    eyebrow: "Capabilities",
+    title: "Design with restraint. Development without compromise.",
+    text: "Every element has a reason to be there. We combine clear visual thinking, responsive development and sound technical foundations to make websites that feel effortless to use.",
   },
   portfolio: {
-    eyebrow: "Selected builds",
-    title: "Digital products engineered to perform",
-    text: "Our work spans conversion-focused business websites, e-commerce platforms, interactive landing pages, custom dashboards and modern web applications built around measurable business outcomes.",
+    eyebrow: "Selected work",
+    title: "Composed on the surface. Considered underneath.",
+    text: "We favour strong ideas, quiet detail and interfaces that reward attention without demanding it. Client work is shared where permissions allow; private projects can be discussed directly.",
   },
   about: {
-    eyebrow: "Who we are",
-    title: "Design thinking backed by clean engineering",
-    text: "Tenth Avenue Web Design combines brand strategy, user experience, frontend craftsmanship and practical backend development to create digital experiences that look sharp and work hard.",
+    eyebrow: "Independent studio",
+    title: "Small by design. Serious about the details.",
+    text: "Tenth Avenue is a focused web design practice for businesses that value clarity, character and dependable execution. You deal directly with the person shaping and building the work.",
   },
   process: {
-    eyebrow: "Delivery framework",
-    title: "From discovery to deployment",
-    text: "We map requirements, prototype the experience, define the technical architecture, build in focused iterations, test across devices and launch with performance, security and maintainability in mind.",
+    eyebrow: "A deliberate process",
+    title: "Clear decisions. Careful execution. No theatre.",
+    text: "We define the right problem, establish a strong direction and move through design and development with purpose. Communication stays direct and the work stays grounded in what the business needs.",
   },
 };
 
@@ -242,22 +242,22 @@ function SeoContent() {
     {
       href: "/services",
       title: "Business website design",
-      text: "Responsive websites shaped around your services, customers and conversion goals.",
+      text: "Clear, brand-led websites that make the business feel established, credible and easy to understand.",
     },
     {
       href: "/services",
       title: "Web development",
-      text: "Clean frontend and backend development, integrations and reliable lead capture.",
+      text: "Responsive, durable development with the technical work kept quietly out of the way.",
     },
     {
       href: "/services",
       title: "E-commerce websites",
-      text: "Product-focused online stores designed for clear navigation and straightforward purchasing.",
+      text: "Calm, intuitive shopping experiences that keep attention on the product and momentum toward purchase.",
     },
     {
       href: "/services",
       title: "Technical SEO",
-      text: "Crawlable pages, metadata, structured data, internal links, sitemaps and performance improvements.",
+      text: "Sound structure, useful metadata and performance work that help the right people find you.",
     },
   ];
 
@@ -266,12 +266,12 @@ function SeoContent() {
       <div className="seo-content-inner">
         <p className="eyebrow">Budgewoi · Central Coast NSW</p>
         <h2 id="central-coast-web-design">
-          Web design and development built around business results
+          A considered web presence, built to earn trust
         </h2>
         <p className="seo-intro">
-          Tenth Avenue Web Design creates fast, responsive and conversion-focused
-          websites for businesses in Budgewoi, across the Central Coast and
-          throughout New South Wales.
+          Tenth Avenue Web Design creates distinctive, dependable websites
+          for businesses in Budgewoi, across the Central Coast and throughout
+          New South Wales—clear in purpose, refined in detail and easy to use.
         </p>
 
         <div className="seo-service-grid">
@@ -286,8 +286,8 @@ function SeoContent() {
 
         <div className="seo-local-cta">
           <div>
-            <strong>Discuss your website directly</strong>
-            <p>Call Tenth Avenue Web Design for a project conversation.</p>
+            <strong>A straightforward project conversation</strong>
+            <p>Tell us what needs to change. We’ll give you a clear view of the next step.</p>
           </div>
           <a className="seo-phone" href="tel:+61430535096">
             (+61) 430 535 096
@@ -405,7 +405,7 @@ export default function App() {
           <div className="hero-content">
             <p className="eyebrow hero-eyebrow">
               <span aria-hidden="true" />
-              Premium web design
+              Independent web design · Central Coast
             </p>
 
             <h1 id="hero-title">
@@ -425,9 +425,9 @@ export default function App() {
             </h1>
 
             <p className="hero-description">
-              Fast, responsive websites for businesses in Budgewoi, the
-              Central Coast and across NSW—designed to impress, perform and
-              convert visitors into enquiries.
+              Thoughtful design, disciplined development and a clear sense
+              of purpose—websites that feel considered, move quickly and make it
+              easy for the right customers to choose you.
             </p>
 
             <div className="hero-actions">
