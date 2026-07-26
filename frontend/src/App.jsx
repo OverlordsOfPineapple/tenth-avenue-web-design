@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
 const navigation = [
-  { href: "/services.html", label: "Services" },
-  { href: "/portfolio.html", label: "Portfolio" },
-  { href: "/about.html", label: "About" },
-  { href: "/process.html", label: "Process" },
-  { href: "/contact.html", label: "Contact" },
+  { href: "/services", label: "Services" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
+  { href: "/process", label: "Process" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function LightningFeatureIcon() {
@@ -240,22 +240,22 @@ function Modal({ type, onClose, submitted, setSubmitted }) {
 function SeoContent() {
   const services = [
     {
-      href: "/services.html",
+      href: "/services",
       title: "Business website design",
       text: "Responsive websites shaped around your services, customers and conversion goals.",
     },
     {
-      href: "/services.html",
+      href: "/services",
       title: "Web development",
       text: "Clean frontend and backend development, integrations and reliable lead capture.",
     },
     {
-      href: "/services.html",
+      href: "/services",
       title: "E-commerce websites",
       text: "Product-focused online stores designed for clear navigation and straightforward purchasing.",
     },
     {
-      href: "/services.html",
+      href: "/services",
       title: "Technical SEO",
       text: "Crawlable pages, metadata, structured data, internal links, sitemaps and performance improvements.",
     },
@@ -292,7 +292,7 @@ function SeoContent() {
           <a className="seo-phone" href="tel:+61430535096">
             (+61) 430 535 096
           </a>
-          <a className="button button-primary" href="/contact.html">
+          <a className="button button-primary" href="/contact">
             Request a quote <span aria-hidden="true">→</span>
           </a>
         </div>
