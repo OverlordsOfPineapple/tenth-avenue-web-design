@@ -237,70 +237,6 @@ function Modal({ type, onClose, submitted, setSubmitted }) {
   );
 }
 
-function SeoContent() {
-  const services = [
-    {
-      href: "/services",
-      title: "Business website design",
-      text: "Clear, brand-led websites that make the business feel established, credible and easy to understand.",
-    },
-    {
-      href: "/services",
-      title: "Web development",
-      text: "Responsive, durable development with the technical work kept quietly out of the way.",
-    },
-    {
-      href: "/services",
-      title: "E-commerce websites",
-      text: "Calm, intuitive shopping experiences that keep attention on the product and momentum toward purchase.",
-    },
-    {
-      href: "/services",
-      title: "Technical SEO",
-      text: "Sound structure, useful metadata and performance work that help the right people find you.",
-    },
-  ];
-
-  return (
-    <section className="seo-content" aria-labelledby="central-coast-web-design">
-      <div className="seo-content-inner">
-        <p className="eyebrow">Budgewoi · Central Coast NSW</p>
-        <h2 id="central-coast-web-design">
-          A considered web presence, built to earn trust
-        </h2>
-        <p className="seo-intro">
-          Tenth Avenue Web Design creates distinctive, dependable websites
-          for businesses in Budgewoi, across the Central Coast and throughout
-          New South Wales—clear in purpose, refined in detail and easy to use.
-        </p>
-
-        <div className="seo-service-grid">
-          {services.map((service) => (
-            <a className="seo-service-card" href={service.href} key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              <span>Explore services →</span>
-            </a>
-          ))}
-        </div>
-
-        <div className="seo-local-cta">
-          <div>
-            <strong>A straightforward project conversation</strong>
-            <p>Tell us what needs to change. We’ll give you a clear view of the next step.</p>
-          </div>
-          <a className="seo-phone" href="tel:+61430535096">
-            (+61) 430 535 096
-          </a>
-          <a className="button button-primary" href="/contact">
-            Request a quote <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function App() {
   const [modal, setModal] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -476,9 +412,6 @@ export default function App() {
           </div>
         </section>
       </main>
-
-      <SeoContent />
-
       {modal && (
         <Modal
           type={modal}
