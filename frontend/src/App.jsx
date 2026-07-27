@@ -363,7 +363,7 @@ export default function App() {
             <p className="hero-description">
               Fast, responsive websites for businesses in Budgewoi, across the
               Central Coast and throughout Australia—built to look sharp,
-              perform reliably and turn visitors into enquiries.
+              perform reliably and help turn visitors into enquiries.
             </p>
 
             <div className="hero-actions">
