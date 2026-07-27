@@ -425,9 +425,9 @@ export default function App() {
             </h1>
 
             <p className="hero-description">
-              Thoughtful design, disciplined development and a clear sense
-              of purpose—websites that feel considered, move quickly and make it
-              easy for the right customers to choose you.
+              Fast, responsive websites for businesses in Budgewoi, across the
+              Central Coast and throughout Australia—built to look sharp,
+              perform reliably and turn visitors into enquiries.
             </p>
 
             <div className="hero-actions">
