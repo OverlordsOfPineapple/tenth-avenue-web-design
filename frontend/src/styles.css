@@ -155,6 +155,18 @@ button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visib
   max-width: none;
   filter: saturate(1.08) contrast(1.08);
 }
+
+.hero-photograph::after {
+  content: "";
+  position: absolute;
+  top: 74px;
+  right: 0;
+  width: 360px;
+  height: 26px;
+  background: #050506;
+  border-radius: 0 0 18px 18px;
+  z-index: 2;
+}
 .hero::before {
   content: "";
   position: absolute;
