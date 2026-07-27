@@ -1,7 +1,7 @@
 {
   "name": "tenth-avenue-frontend",
-  "version": "1.0.0",
-  "description": "React frontend for Tenth Avenue Web Design.",
+  "version": "2.0.0",
+  "description": "Lean static frontend for Tenth Avenue Web Design.",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,15 +9,7 @@
     "build": "vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
-  "dependencies": {
-    "@fontsource/barlow-condensed": "^5.3.0",
-    "@fontsource/montserrat": "^5.3.0",
-    "lucide-react": "^0.468.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
   "devDependencies": {
-    "@vitejs/plugin-react": "^6.0.3",
     "vite": "^8.1.4"
   }
 }

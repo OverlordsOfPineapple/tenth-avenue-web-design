@@ -10,15 +10,6 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/seo-pages.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ContactPage", "name": "Contact Tenth Avenue Web Design", "url": "https://tenth-avenue-web-design.pages.dev/contact", "mainEntity": {"@id": "https://tenth-avenue-web-design.pages.dev/#business"}, "inLanguage": "en-AU"}</script>
-<style>
-.form-honeypot {
-  position: absolute !important;
-  left: -10000px !important;
-  width: 1px !important;
-  height: 1px !important;
-  overflow: hidden !important;
-}
-</style>
 </head>
 <body>
 <a class="skip-link" href="#content">Skip to content</a>
@@ -42,27 +33,6 @@
   </form>
 </main>
 <footer><strong>Tenth Avenue Web Design</strong> · Budgewoi, Central Coast NSW 2262 · <a href="tel:+61430535096">(+61) 430 535 096</a> <a href="/privacy">Privacy</a></footer>
-<script>
-const form = document.querySelector('#contact-form');
-const status = document.querySelector('#form-status');
-form.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  status.textContent = 'Sending…';
-  const payload = Object.fromEntries(new FormData(form));
-  try {
-    const response = await fetch('/api/contact', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(payload)
-    });
-    const result = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(result.error || 'The enquiry could not be sent.');
-    form.reset();
-    status.textContent = 'Thanks—your enquiry has been received.';
-  } catch (error) {
-    status.textContent = error.message + ' Please call ' + "(+61) 430 535 096" + '.';
-  }
-});
-</script>
+<script src="/contact.js" defer></script>
 </body>
 </html>
