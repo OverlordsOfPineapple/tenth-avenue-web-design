@@ -9,9 +9,10 @@
     "test": "node scripts/test-functions.mjs",
     "check:html": "node scripts/check-html.mjs",
     "check:bundle": "node scripts/check-bundle.mjs",
-    "check": "npm run build --prefix frontend && node --check functions/_shared.js && node --check functions/api/contact.js && node --check functions/api/quote.js && npm run check:html && npm run check:bundle && npm test",
+    "check": "npm run build --prefix frontend && node --check functions/_shared.js && node --check functions/api/contact.js && node --check functions/api/quote.js && npm run check:html && npm run check:bundle && npm run check:routes && npm test",
     "pages:dev": "npm run build --prefix frontend && wrangler pages dev frontend/dist",
-    "pages:deploy": "npm run build --prefix frontend && wrangler pages deploy frontend/dist"
+    "pages:deploy": "npm run build --prefix frontend && wrangler pages deploy frontend/dist",
+    "check:routes": "node scripts/check-routes.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.0.0"

@@ -1,11 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
 
+function walk(directory) {
+  return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    const location = path.join(directory, entry.name);
+    return entry.isDirectory() ? walk(location) : [location];
+  });
+}
+
 const files = [
   "frontend/index.html",
-  ...fs.readdirSync("frontend/public")
-    .filter((name) => name.endsWith(".html"))
-    .map((name) => path.join("frontend/public", name)),
+  ...walk("frontend/public").filter((name) => name.endsWith(".html")),
 ];
 
 const errors = [];
