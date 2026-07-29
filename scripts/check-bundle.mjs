@@ -39,6 +39,12 @@ for (const image of [
   "frontend/dist/tenth-avenue-home-1536.webp",
   "frontend/dist/tenth-avenue-home-768.avif",
   "frontend/dist/tenth-avenue-home-768.webp",
+  "frontend/dist/visuals/services-responsive.svg",
+  "frontend/dist/visuals/portfolio-tenth-avenue.svg",
+  "frontend/dist/visuals/portfolio-northline.svg",
+  "frontend/dist/visuals/portfolio-stillwater.svg",
+  "frontend/dist/visuals/about-workspace.svg",
+  "frontend/dist/visuals/process-flow.svg",
 ]) {
   if (!fs.existsSync(image) || fs.statSync(image).size === 0) {
     throw new Error(`Missing optimised hero asset: ${image}`);
