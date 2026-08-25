@@ -3,33 +3,102 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Page Not Found | Tenth Avenue Web Design</title>
+  <title>404 | Tenth Avenue Web Design</title>
   <meta name="robots" content="noindex,follow">
-  <meta name="theme-color" content="#fa1472">
+  <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/seo-pages.css">
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: Arial, Helvetica, "Nimbus Sans L", sans-serif;
+      background: #fff;
+      color: #000;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #fff;
+      color: #000;
+    }
+
+    body {
+      min-height: 100vh;
+      min-height: 100svh;
+      overflow: hidden;
+    }
+
+    main {
+      min-height: 100vh;
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      align-items: center;
+      padding: clamp(18px, 3vw, 48px);
+    }
+
+    .error-code {
+      margin: 0;
+      justify-self: center;
+      font-size: clamp(12rem, 45vw, 48rem);
+      font-weight: 900;
+      line-height: .72;
+      letter-spacing: -.095em;
+      white-space: nowrap;
+      transform: translateX(-.035em);
+      user-select: none;
+    }
+
+    .footer {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      width: 100%;
+      padding-top: 18px;
+      font-size: clamp(.75rem, 1vw, .95rem);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .footer p { margin: 0; }
+
+    .footer a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .22em;
+    }
+
+    .footer a:focus-visible {
+      outline: 2px solid #000;
+      outline-offset: 5px;
+    }
+
+    @media (max-width: 640px) {
+      main { padding: 16px; }
+
+      .error-code {
+        font-size: clamp(9rem, 44vw, 18rem);
+        line-height: .78;
+      }
+
+      .footer {
+        align-items: flex-end;
+        font-size: .68rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#content">Skip to content</a>
-  <header class="site-top">
-    <a class="logo" href="/"><span>X</span> Tenth Avenue Web Design</a>
-    <nav aria-label="Primary navigation">
-      <a href="/">Home</a>
-      <a href="/services">Services</a>
-      <a href="/portfolio">Portfolio</a>
-      <a href="/about">About</a>
-      <a href="/process">Process</a>
-      <a href="/contact">Contact</a>
-    </nav>
-  </header>
-  <main id="content">
-    <p class="eyebrow">404</p>
-    <h1>That page does not exist.</h1>
-    <p class="lead">The address may be incorrect or the page may have moved.</p>
-    <p><a class="button" href="/">Return home</a></p>
+  <main>
+    <h1 class="error-code" aria-label="404 — page not found">404</h1>
+    <div class="footer" aria-label="Page not found navigation">
+      <p>Page not found</p>
+      <a href="/">Tenth Avenue / Home</a>
+    </div>
   </main>
-  <footer>
-    <strong>Tenth Avenue Web Design</strong> · Budgewoi, Central Coast NSW 2262
-  </footer>
 </body>
 </html>
