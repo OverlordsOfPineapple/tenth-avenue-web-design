@@ -9,3 +9,4 @@ project-backups/
 backups/
 backend/data/leads.json
 .DS_Store
+*.backup

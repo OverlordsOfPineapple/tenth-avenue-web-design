@@ -115,7 +115,7 @@
           <source media="(max-width:720px)" type="image/webp" srcset="/tenth-avenue-home-768.webp">
           <source type="image/avif" srcset="/tenth-avenue-home-1536.avif">
           <source type="image/webp" srcset="/tenth-avenue-home-1536.webp">
-          <img src="/tenth-avenue-home.png" width="1536" height="1024" alt="" fetchpriority="high" decoding="async">
+          <img src="/tenth-avenue-home-1536.webp" width="1536" height="1024" alt="" fetchpriority="high" decoding="async">
         </picture>
 
         <div class="hero-content">
@@ -182,13 +182,13 @@
         <p class="dialog-copy">Share your goals, required features and preferred launch window. We’ll turn the brief into a clear next step.</p>
 
         <form class="quote-form" id="quote-form">
-          <label>Name<input name="name" autocomplete="name" required></label>
-          <label>Email<input name="email" type="email" autocomplete="email" required></label>
-          <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
-          <label>Business<input name="business" autocomplete="organization"></label>
-          <label>Project details<textarea name="details" rows="5" required></textarea></label>
+          <label>Name<input name="name" autocomplete="name" maxlength="100" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" required></label>
+          <label>Phone<input name="phone" type="tel" autocomplete="tel" maxlength="80"></label>
+          <label>Business<input name="business" autocomplete="organization" maxlength="160"></label>
+          <label>Project details<textarea name="details" rows="5" maxlength="3000" required></textarea></label>
           <div class="form-honeypot" aria-hidden="true">
-            <label>Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <label>Website<input name="website" tabindex="-1" autocomplete="off" maxlength="300"></label>
           </div>
           <button class="button button-primary" type="submit">
             Send enquiry <span aria-hidden="true">→</span>

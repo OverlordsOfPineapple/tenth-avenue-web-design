@@ -1,7 +1,10 @@
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
   "cache-control": "no-store",
+  "x-content-type-options": "nosniff",
 };
+
+const MAX_BODY_BYTES = 16 * 1024;
 
 export function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
@@ -136,8 +139,26 @@ export async function parseRequest(request, type) {
     };
   }
 
-  const contentType = request.headers.get("content-type") || "";
-  if (!contentType.includes("application/json")) {
+  const origin = request.headers.get("origin");
+  if (origin && origin !== new URL(request.url).origin) {
+    return {
+      error: json({ ok: false, error: "Cross-origin request rejected." }, 403),
+    };
+  }
+
+  const contentLength = Number(request.headers.get("content-length") || 0);
+  if (Number.isFinite(contentLength) && contentLength > MAX_BODY_BYTES) {
+    return {
+      error: json({ ok: false, error: "Request body is too large." }, 413),
+    };
+  }
+
+  const contentType = (request.headers.get("content-type") || "")
+    .split(";", 1)[0]
+    .trim()
+    .toLowerCase();
+
+  if (contentType !== "application/json") {
     return {
       error: json({ ok: false, error: "JSON request required." }, 415),
     };
@@ -149,6 +170,12 @@ export async function parseRequest(request, type) {
   } catch {
     return {
       error: json({ ok: false, error: "Invalid JSON." }, 400),
+    };
+  }
+
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
+    return {
+      error: json({ ok: false, error: "JSON object required." }, 400),
     };
   }
 

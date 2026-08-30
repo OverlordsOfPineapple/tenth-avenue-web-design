@@ -23,13 +23,13 @@
     <a class="contact-email" href="mailto:studio@tenthavenuewebdesign.com">studio@tenthavenuewebdesign.com</a>
 </p>
   <form id="contact-form">
-    <label>Name<input name="name" autocomplete="name" required></label>
-    <label>Email<input name="email" type="email" autocomplete="email" required></label>
-    <label>Phone<input name="phone" type="tel" autocomplete="tel"></label>
-    <label>What would you like the website to achieve?<textarea name="message" rows="7" required></textarea></label>
+    <label>Name<input name="name" autocomplete="name" maxlength="100" required></label>
+    <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" required></label>
+    <label>Phone<input name="phone" type="tel" autocomplete="tel" maxlength="80"></label>
+    <label>What would you like the website to achieve?<textarea name="message" rows="7" maxlength="3000" required></textarea></label>
 
     <div class="form-honeypot" aria-hidden="true">
-      <label>Website<input name="website" tabindex="-1" autocomplete="off"></label>
+      <label>Website<input name="website" tabindex="-1" autocomplete="off" maxlength="300"></label>
     </div>
     <button class="button" type="submit">Start the conversation</button>
     <p class="status" id="form-status" role="status" aria-live="polite"></p>
