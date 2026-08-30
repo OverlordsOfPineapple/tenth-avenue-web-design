@@ -2,7 +2,6 @@ import fs from "node:fs";
 
 const routes = {
   services: "Web Design Services Central Coast NSW",
-  portfolio: "Web Design Portfolio Central Coast",
   about: "About Tenth Avenue Web Design",
   process: "Web Design Process",
   contact: "Contact Tenth Avenue Web Design",

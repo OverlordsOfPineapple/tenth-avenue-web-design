@@ -6,7 +6,6 @@ import { defineConfig } from "vite";
 const configDirectory = dirname(fileURLToPath(import.meta.url));
 const pageNames = [
   "services",
-  "portfolio",
   "about",
   "process",
   "contact",

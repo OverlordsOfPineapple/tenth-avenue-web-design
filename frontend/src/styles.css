@@ -394,3 +394,21 @@ button:disabled { cursor: wait; opacity: .65; }
   *,*::before,*::after { animation-duration: 1ms !important; animation-delay: 0ms !important; transition-duration: 1ms !important; }
   .headline-line { opacity: 1; transform: none; }
 }
+
+/* Phone-relative email alignment */
+.contact-phone-email {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+}
+
+.contact-phone-email a[href^="tel:"] {
+  display: block;
+}
+
+.contact-phone-email a[href="mailto:studio@tenthavenuewebdesign.com"] {
+  display: block;
+  margin-top: 0.25rem;
+  text-align: center;
+}
