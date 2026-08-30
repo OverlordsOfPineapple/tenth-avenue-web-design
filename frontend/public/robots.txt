@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://tenth-avenue-web-design.pages.dev/sitemap.xml
+Sitemap: https://tenthavenuewebdesign.com/sitemap.xml

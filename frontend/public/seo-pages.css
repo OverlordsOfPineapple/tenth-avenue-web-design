@@ -42,6 +42,15 @@ h3 { margin-bottom: .4rem; }
 .grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 3rem 0; }
 .card { padding: clamp(1.3rem,3vw,2rem); background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.015)); border: 1px solid var(--line); border-radius: 14px; }
 .card p { color: var(--muted); }
+.service-card { display:flex; min-height:100%; flex-direction:column; overflow:hidden; padding:0; transition:border-color 180ms ease, transform 180ms ease, box-shadow 180ms ease; }
+.service-card:hover { border-color:rgba(250,20,114,.42); transform:translateY(-3px); box-shadow:0 22px 55px rgba(0,0,0,.28); }
+.service-copy { padding:clamp(1.3rem,3vw,2rem); }
+.service-copy p { margin-bottom:0; }
+.service-visual { position:relative; aspect-ratio:16/9; margin:auto 0 0; overflow:hidden; border-top:1px solid var(--line); background:#09090c; }
+.service-visual::after { content:""; position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg,transparent 45%,rgba(250,20,114,.08)); opacity:.7; transition:opacity 180ms ease; }
+.service-card:hover .service-visual::after { opacity:1; }
+.service-visual img { display:block; width:100%; height:100%; object-fit:cover; filter:saturate(.76) contrast(1.04); transition:filter 180ms ease, transform 300ms ease; }
+.service-card:hover .service-visual img { filter:saturate(1) contrast(1.08); transform:scale(1.015); }
 .cta { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding: 1.5rem; border: 1px solid rgba(250,20,114,.42); border-radius: 14px; background: rgba(250,20,114,.08); }
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: .8rem 1.25rem; border: 1px solid var(--pink); background: var(--pink); color: #09090c; font-weight: 900; text-decoration: none; border-radius: 4px; }
 .button.secondary { color: var(--text); background: transparent; }
@@ -53,7 +62,7 @@ input:focus, textarea:focus { outline: 2px solid var(--pink); outline-offset: 2p
 .status { min-height: 1.5rem; color: var(--muted); }
 footer { padding: 2rem clamp(1rem,4vw,4rem); border-top: 1px solid var(--line); color: var(--muted); }
 footer a { margin-right: 1rem; }
-@media (max-width: 760px) { .site-top { align-items: flex-start; flex-direction: column; } .grid { grid-template-columns: 1fr; } h1 { font-size: clamp(2.8rem,16vw,5rem); } }
+@media (max-width: 760px) { .site-top { align-items: flex-start; flex-direction: column; } .grid { grid-template-columns: 1fr; } h1 { font-size: clamp(2.8rem,16vw,5rem); } .service-card:hover { transform:none; } }
 
 /* Editorial page visuals */
 .page-visual { margin: clamp(2.25rem,5vw,4.5rem) 0; }

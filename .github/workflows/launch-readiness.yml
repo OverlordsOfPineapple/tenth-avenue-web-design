@@ -1,0 +1,49 @@
+name: Launch readiness
+
+on:
+  push:
+    branches:
+      - main
+      - "launch/**"
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            frontend/package-lock.json
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Install frontend dependencies
+        run: npm ci --prefix frontend
+
+      - name: Verify production URLs
+        env:
+          SITE_URL: https://tenthavenuewebdesign.com
+        run: npm run site:url:check
+
+      - name: Build and test
+        run: npm run check
+
+      - name: Check generated drift
+        run: git diff --exit-code
