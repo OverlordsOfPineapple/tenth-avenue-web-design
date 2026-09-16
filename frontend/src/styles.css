@@ -209,14 +209,8 @@ h1 {
 .headline-line {
   display: block;
   white-space: nowrap;
-  opacity: 0;
-  transform: translateY(.24em);
-  animation: reveal-line 520ms cubic-bezier(.18,.85,.35,1) forwards;
 }
-.headline-line:nth-child(2) { animation-delay: 120ms; }
-.headline-line:nth-child(3) { animation-delay: 240ms; }
 .headline-accent { color: var(--pink); text-shadow: 0 0 10px rgba(250,20,114,.75),0 0 34px rgba(250,20,114,.42); }
-@keyframes reveal-line { to { opacity: 1; transform: translateY(0); } }
 
 .hero-description { max-width: 540px; margin: 30px 0 0; color: #d0d0d8; font-size: clamp(1rem,1.28vw,1.2rem); line-height: 1.65; }
 .hero-actions { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 15px; }
