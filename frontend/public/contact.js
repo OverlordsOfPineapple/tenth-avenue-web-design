@@ -17,10 +17,10 @@ form?.addEventListener("submit", async (event) => {
       body: JSON.stringify(payload),
     });
     const result = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(result.error || "The enquiry could not be sent.");
+    if (!response.ok || result.ok !== true || !result.leadId) throw new Error(result.error || "The enquiry could not be sent.");
 
     form.reset();
-    status.textContent = "Thanks—your enquiry has been received.";
+    status.textContent = `${result.message || "Thanks—your enquiry has been received."} Reference: ${result.leadId}`;
   } catch (error) {
     status.textContent = `${error.message} Please call (+61) 430 535 096.`;
   } finally {

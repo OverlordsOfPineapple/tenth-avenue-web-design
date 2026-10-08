@@ -51,10 +51,10 @@ quoteForm?.addEventListener("submit", async (event) => {
       body: JSON.stringify(payload),
     });
     const result = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(result.error || "The enquiry could not be sent.");
+    if (!response.ok || result.ok !== true || !result.leadId) throw new Error(result.error || "The enquiry could not be sent.");
 
     quoteForm.reset();
-    quoteStatus.textContent = "Thanks—your enquiry has been received.";
+    quoteStatus.textContent = `${result.message || "Thanks—your enquiry has been received."} Reference: ${result.leadId}`;
   } catch (error) {
     quoteStatus.textContent = `${error.message} Please call (+61) 430 535 096.`;
   } finally {

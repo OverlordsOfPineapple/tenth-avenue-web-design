@@ -88,7 +88,7 @@ export async function saveLead(env, lead) {
 
 export async function sendNotification(env, lead) {
   if (!env.RESEND_API_KEY || !env.LEAD_TO_EMAIL || !env.RESEND_FROM_EMAIL) {
-    return { skipped: true };
+    throw new Error("Email notification settings are incomplete.");
   }
 
   const subject =
@@ -108,28 +108,39 @@ export async function sendNotification(env, lead) {
     <p>Received ${escapeHtml(lead.createdAt)}</p>
   `;
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      authorization: `Bearer ${env.RESEND_API_KEY}`,
-      "content-type": "application/json",
-      "idempotency-key": `lead/${lead.id}`,
-    },
-    body: JSON.stringify({
-      from: env.RESEND_FROM_EMAIL,
-      to: [env.LEAD_TO_EMAIL],
-      reply_to: lead.email,
-      subject,
-      html,
-    }),
-  });
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 10_000);
+  try {
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      signal: controller.signal,
+      headers: {
+        authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "content-type": "application/json",
+        "idempotency-key": `lead/${lead.id}`,
+      },
+      body: JSON.stringify({
+        from: env.RESEND_FROM_EMAIL,
+        to: [env.LEAD_TO_EMAIL],
+        reply_to: lead.email,
+        subject,
+        html,
+      }),
+    });
 
-  if (!response.ok) {
-    const message = await response.text();
-    throw new Error(`Resend notification failed: ${message.slice(0, 500)}`);
+    if (!response.ok) {
+      // Provider response bodies may contain submitted personal information.
+      throw new Error(`Resend notification rejected (HTTP ${response.status}).`);
+    }
+
+    const result = await response.json();
+    if (typeof result?.id !== "string" || !result.id.trim()) {
+      throw new Error("Resend did not confirm email acceptance.");
+    }
+    return result;
+  } finally {
+    clearTimeout(timeout);
   }
-
-  return response.json();
 }
 
 export async function parseRequest(request, type) {
@@ -232,16 +243,22 @@ export async function handleLead(context, type) {
 
     await saveLead(context.env, lead);
 
-    context.waitUntil(
-      sendNotification(context.env, lead).catch((error) => {
-        console.error(error);
-      }),
-    );
+    let notification = "accepted";
+    try {
+      const email = await sendNotification(context.env, lead);
+      console.info("Lead notification accepted", { leadId: lead.id, emailId: email.id });
+    } catch (error) {
+      console.error("Lead saved but notification failed", { leadId: lead.id, errorType: error?.name || "Error" });
+      notification = "failed";
+    }
 
     return json(
       {
         ok: true,
-        message: "Thanks—your enquiry has been received.",
+        message: notification === "accepted"
+          ? "Thanks—your enquiry has been received."
+          : "Your enquiry has been saved, but we couldn’t confirm it reached our inbox. Please call (+61) 430 535 096 and quote your reference.",
+        notification,
         leadId: lead.id,
       },
       201,
