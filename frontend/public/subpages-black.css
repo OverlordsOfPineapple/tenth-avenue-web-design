@@ -1,0 +1,20 @@
+/* About, Process and Contact only. Never imported by the homepage. */
+:root{--background:#000;--panel:#0b0b0d;--pink:#fa1472;--line:rgba(255,255,255,.18)}
+html{background:#000}body{background:#000!important;color:#fff}
+.site-top{background:#000;border-bottom:1px solid #242424}
+.site-top nav a[aria-current="page"]{color:var(--pink);border-bottom:2px solid var(--pink);padding-bottom:.35rem}
+main{width:min(1360px,calc(100% - clamp(2rem,6vw,6rem)));padding:clamp(2rem,5vw,4.5rem) 0}
+h1{font-size:clamp(2.6rem,5vw,5.4rem);line-height:1.02;max-width:1040px;letter-spacing:-.045em}
+.lead{max-width:780px;color:#d1d1d5}
+.page-visual{margin:2rem 0}.page-visual img{border-radius:0;box-shadow:none;max-height:440px;object-fit:cover}
+.grid{gap:12px;margin:2rem 0 3rem}.card{border-radius:0;background:#090909;border:1px solid #292929;min-height:170px}
+.card h2{font-size:clamp(1.4rem,2vw,2rem)}
+.card:hover{border-color:var(--pink)}
+.cta{border-radius:0;background:#080808;border:1px solid #333;padding:clamp(1.5rem,3vw,3rem);gap:1.3rem}
+.cta .button,.button{background:transparent;color:var(--pink);border:2px solid var(--pink);border-radius:6px}
+.cta .button:hover,.button:hover{background:var(--pink);color:#000}
+form{max-width:840px;padding:clamp(1rem,3vw,2.5rem);border:1px solid #303030;background:#090909}
+input,textarea{background:#050505;border-color:#444}
+footer{background:#000}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){main{width:calc(100% - 2rem)}.grid{grid-template-columns:1fr}h1{font-size:clamp(2.4rem,10vw,4rem)}.page-visual img{max-height:300px}}
