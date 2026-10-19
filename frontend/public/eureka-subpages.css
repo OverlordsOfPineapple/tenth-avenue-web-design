@@ -1,0 +1,242 @@
+/* Eureka visual language for About, Process and Contact only.
+   NOT imported by Home, Services, Privacy, Terms, or other routes. */
+body.eureka-subpage {
+  background: #000 !important;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.eureka-subpage .site-top {
+  background: #000;
+  border-bottom: 1px solid #292929;
+}
+.eureka-subpage .site-top nav a[aria-current="page"] {
+  color: #ff1682;
+  border-bottom-color: #ff1682;
+}
+.eureka-subpage .site-top nav a:hover,
+.eureka-subpage .site-top nav a:focus-visible {
+  color: #ff1682;
+}
+.eureka-subpage a:focus-visible,
+.eureka-subpage .button:focus-visible {
+  outline: 3px solid #ff1682;
+  outline-offset: 4px;
+}
+.eureka-subpage main {
+  padding-top: clamp(38px, 5.5vw, 76px);
+  padding-bottom: clamp(44px, 6vw, 80px);
+}
+.eureka-subpage .eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ff1682;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+.eureka-subpage .eyebrow::after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: #ff1682;
+  flex: 0 0 50px;
+}
+.eureka-subpage h1 {
+  max-width: 1090px;
+  margin: 14px 0 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(36px, 4.3vw, 66px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+.eureka-subpage h1 em {
+  color: #ff1682;
+  font-style: normal;
+}
+.eureka-subpage .lead {
+  max-width: 790px;
+  color: #cfcfd2;
+  font-size: clamp(16px, 1.6vw, 19px);
+  line-height: 1.5;
+}
+.eureka-subpage .page-visual {
+  position: relative;
+  margin: clamp(26px, 4vw, 52px) 0 16px;
+  background: #050505;
+  border: 1px solid #303030;
+  overflow: hidden;
+}
+.eureka-subpage .page-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 112px;
+  height: 3px;
+  background: #ff1682;
+  z-index: 1;
+}
+.eureka-subpage .page-visual img {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  object-fit: cover;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  background: #050505;
+}
+.eureka-subpage .page-visual figcaption {
+  margin: 0;
+  padding: 13px 18px;
+  color: #bcbcc0;
+  font-size: 13px;
+  border-top: 1px solid #303030;
+}
+.eureka-subpage .grid {
+  gap: 10px;
+  margin: 30px 0 48px;
+}
+.eureka-subpage .card {
+  min-width: 0;
+  min-height: 170px;
+  padding: clamp(22px, 2.6vw, 32px);
+  background: #090909;
+  border: 1px solid #373737;
+  border-radius: 0;
+  transition: border-color 180ms ease;
+}
+.eureka-subpage .card:hover {
+  border-color: #ff1682;
+}
+.eureka-subpage .card h2 {
+  margin: 0 0 12px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -.03em;
+}
+.eureka-subpage .card h2::after {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  margin-left: 10px;
+  border-top: 2px solid #ff1682;
+  vertical-align: middle;
+}
+.eureka-subpage .card p {
+  margin: 0;
+  color: #c8c8cc;
+  font-size: 15px;
+  line-height: 1.55;
+}
+.eureka-about .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.eureka-process .grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.eureka-subpage .cta {
+  background: #080808;
+  border: 1px solid #333;
+  border-top: 2px solid #ff1682;
+  border-radius: 0;
+  padding: clamp(24px, 3vw, 40px);
+}
+.eureka-subpage .cta strong {
+  color: #fff;
+  font-size: clamp(20px, 2.1vw, 28px);
+  line-height: 1.2;
+}
+.eureka-subpage .button {
+  min-height: 48px;
+  border: 2px solid #ff1682;
+  border-radius: 7px;
+  color: #ff1682;
+  background: transparent;
+  font: 700 15px/1.2 Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+.eureka-subpage .button:hover {
+  background: #ff1682;
+  color: #000;
+}
+.eureka-subpage .phone {
+  color: #ff1682;
+}
+.eureka-subpage .email,
+.eureka-subpage .contact-email {
+  overflow-wrap: anywhere;
+}
+.eureka-contact .direct-contact {
+  gap: 8px;
+  margin: 26px 0 30px;
+}
+.eureka-contact form {
+  max-width: 840px;
+  padding: clamp(22px, 3vw, 42px);
+  background: #080808;
+  border: 1px solid #333;
+  border-top: 2px solid #ff1682;
+}
+.eureka-contact form label {
+  color: #f3f3f3;
+  font-size: 15px;
+}
+.eureka-contact input,
+.eureka-contact textarea {
+  min-width: 0;
+  background: #050505;
+  border: 1px solid #454545;
+  border-radius: 0;
+  color: #fff;
+}
+.eureka-contact input:focus,
+.eureka-contact textarea:focus {
+  outline: 2px solid #ff1682;
+  outline-offset: 2px;
+}
+.eureka-contact .status {
+  overflow-wrap: anywhere;
+}
+.eureka-subpage footer {
+  background: #000;
+  border-top: 1px solid #292929;
+  color: #bcbcc0;
+}
+@media (max-width: 1000px) {
+  .eureka-process .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  .eureka-subpage h1 {
+    font-size: clamp(32px, 8.2vw, 50px);
+    letter-spacing: -1px;
+  }
+  .eureka-subpage main {
+    padding-top: 32px;
+  }
+  .eureka-about .grid,
+  .eureka-process .grid {
+    grid-template-columns: 1fr;
+  }
+  .eureka-subpage .page-visual img {
+    max-height: 320px;
+  }
+  .eureka-subpage .cta,
+  .eureka-contact form {
+    padding: 22px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .eureka-subpage .card {
+    transition: none;
+  }
+}
