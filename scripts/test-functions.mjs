@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { parseRequest } from "../functions/_shared.js";
+import { onRequest as canonicalMiddleware } from "../functions/_middleware.js";
 
 async function responseJson(response) {
   return response.json();
@@ -56,3 +57,49 @@ assert.equal(valid.lead.name, "Test Person");
 assert.equal(valid.lead.message, "A useful project brief.");
 
 console.log("Function request tests passed.");
+
+const middlewareCtx = (url, env = {}, method = "GET") => ({
+  request: new Request(url, {
+    method,
+    ...(method === "POST" ? {
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ synthetic: true }),
+    } : {}),
+  }),
+  env,
+  next() { return new Response("continued", { status: 200 }); },
+});
+
+const wwwRedirect = await canonicalMiddleware(middlewareCtx(
+  "https://www.tenthavenuewebdesign.com/process?utm_source=testing",
+));
+assert.equal(wwwRedirect.status, 308, "www redirects without requiring an env flag");
+assert.equal(
+  wwwRedirect.headers.get("location"),
+  "https://tenthavenuewebdesign.com/process?utm_source=testing",
+);
+
+const postRedirect = await canonicalMiddleware(middlewareCtx(
+  "https://www.tenthavenuewebdesign.com/api/contact", {}, "POST",
+));
+assert.equal(postRedirect.status, 308, "POST requests are method-preserving redirects");
+
+const apex = await canonicalMiddleware(middlewareCtx("https://tenthavenuewebdesign.com/contact"));
+assert.equal(apex.status, 200, "apex requests pass through");
+
+const branchPreview = await canonicalMiddleware(middlewareCtx(
+  "https://design-example.tenth-avenue-web-design.pages.dev/about",
+));
+assert.equal(branchPreview.status, 200, "branch preview remains accessible");
+
+const preview = await canonicalMiddleware(middlewareCtx(
+  "https://tenth-avenue-web-design.pages.dev/contact",
+  { ENFORCE_CANONICAL_HOST: "true" },
+));
+assert.equal(preview.status, 308, "optional production preview redirect works");
+assert.equal(
+  preview.headers.get("location"),
+  "https://tenthavenuewebdesign.com/contact",
+);
+
+console.log("Canonical-host middleware tests passed.");
