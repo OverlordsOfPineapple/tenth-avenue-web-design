@@ -98,3 +98,6 @@ footer a { margin-right: 1rem; }
 .direct-contact .contact-email {
   display: block;
 }
+
+/* Approved header logo; keep artwork at its natural aspect ratio. */
+.header-brand-icon { display: block; object-fit: contain; flex-shrink: 0; }

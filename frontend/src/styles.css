@@ -406,3 +406,6 @@ button:disabled { cursor: wait; opacity: .65; }
   margin-top: 0.25rem;
   text-align: center;
 }
+
+/* Approved header logo; keep artwork at its natural aspect ratio. */
+.header-brand-icon { display: block; object-fit: contain; flex-shrink: 0; }
