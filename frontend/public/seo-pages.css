@@ -100,4 +100,5 @@ footer a { margin-right: 1rem; }
 }
 
 /* Approved header logo; keep artwork at its natural aspect ratio. */
-.header-brand-icon { display: block; object-fit: contain; flex-shrink: 0; }
+.header-brand-icon { display: block; width: 180px; height: 48px; object-fit: cover; object-position: center; flex-shrink: 0; }
+@media (max-width: 620px) { .header-brand-icon { width: 150px; height: 40px; } }
