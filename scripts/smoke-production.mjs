@@ -7,7 +7,7 @@ const siteUrl = (process.env.SITE_URL || "https://tenthavenuewebdesign.com").rep
 const siteHost = new URL(siteUrl).hostname;
 const previewUrl = (process.env.PREVIEW_URL || "https://tenth-avenue-web-design.pages.dev").replace(/\/+$/, "");
 const testForm = process.env.TEST_FORM === "1";
-const routes = ["/", "/services", "/portfolio", "/about", "/process", "/contact", "/privacy", "/terms"];
+const routes = ["/", "/services", "/about", "/process", "/contact", "/privacy", "/terms"];
 
 async function fetchWithRetry(url, options = {}, attempts = 8) {
   let lastError;
