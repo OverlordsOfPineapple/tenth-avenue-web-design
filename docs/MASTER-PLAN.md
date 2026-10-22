@@ -318,7 +318,7 @@ Once the production site is stable:
 - automated backups
 - regular dependency/security review
 - SEO content expansion
-- Central Coast local landing pages where justified
+- Australia-wide SEO landing pages where justified
 - portfolio/case studies only when real, approved work is ready
 
 ---
