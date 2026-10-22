@@ -1,0 +1,8 @@
+/* Keep all six stages visible on About at every screen size. */
+.about-process-visual img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  aspect-ratio: 1200 / 520;
+  object-fit: contain;
+}
