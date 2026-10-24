@@ -16,7 +16,7 @@
 /services.html
   Cache-Control: no-cache
 
-/services-eureka.css
+/services.css
   Cache-Control: no-cache
 
 /assets/*
