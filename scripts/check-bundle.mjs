@@ -9,15 +9,10 @@ function walk(directory) {
   });
 }
 
-const assets = walk("frontend/dist/assets");
-const js = [
-  ...assets.filter((file) => file.endsWith(".js")),
-  "frontend/dist/contact.js",
-].filter(fs.existsSync);
-const css = [
-  ...assets.filter((file) => file.endsWith(".css")),
-  "frontend/dist/seo-pages.css",
-].filter(fs.existsSync);
+// Include every shipped script and stylesheet, not just homepage assets.
+const assets = walk("frontend/dist");
+const js = assets.filter((file) => file.endsWith(".js"));
+const css = assets.filter((file) => file.endsWith(".css"));
 
 function gzipTotal(files) {
   return files.reduce((total, file) => {
