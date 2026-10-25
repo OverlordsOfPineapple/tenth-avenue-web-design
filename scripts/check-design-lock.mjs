@@ -5,8 +5,9 @@ import { execFileSync } from "node:child_process";
 // ("looks good on my browser") and explicitly approved finalising PR #15.
 // Approval applies to Barlow Condensed/Montserrat typography ONLY: preserve
 // Lamborghini image assets, hero placement, responsive rules, and layout.
-// Pin the exact approved frontend tree; do not silently rebaseline this check.
-const baseline = "d4f40cc87620404aa0327b3e134492039f179263";
+// Pin the exact approved frontend tree to the permanent squash-merge commit
+// on main, not a temporary PR branch SHA; do not silently rebaseline this check.
+const baseline = "cff29dcfb6280fe696c166db68aed5fc8e040407";
 const run = (...args) => execFileSync("git", args, { encoding: "utf8" });
 try {
   run("cat-file", "-e", `${baseline}^{commit}`);
