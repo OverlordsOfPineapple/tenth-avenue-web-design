@@ -1,7 +1,9 @@
 export function bindEnquiryForm(form, status, endpoint) {
-  form?.addEventListener("submit", async (event) => {
+  if (!form || !status) return;
+  const button = form.querySelector('button[type="submit"]');
+  if (!button) return;
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const button = form.querySelector('button[type="submit"]');
     if (button.disabled) return;
     const payload = Object.fromEntries(new FormData(form));
   
@@ -27,4 +29,7 @@ export function bindEnquiryForm(form, status, endpoint) {
       form.removeAttribute("aria-busy");
     }
   });
+  // Enable sending only after the handler is installed.
+  status.textContent = "";
+  button.disabled = false;
 }
