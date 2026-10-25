@@ -9,7 +9,7 @@ try {
   };
   for (const endpoint of ["/api/contact", "/api/quote"]) {
     for (const scenario of ["success", "warning", "server", "malformed", "missing-reference", "network"]) {
-      const button = { disabled: false };
+      const button = { disabled: true };
       const status = { textContent: "" };
       let submit, resets = 0, busy = false, calls = 0, release;
       const pending = new Promise((resolve) => { release = resolve; });
@@ -38,6 +38,8 @@ try {
         };
       };
       bindEnquiryForm(form, status, endpoint);
+      assert.equal(button.disabled, false, "Binding enables an initially disabled form");
+      assert.equal(status.textContent, "");
       const event = { preventDefault() {} };
       const submission = submit(event);
       assert.equal(button.disabled, true);

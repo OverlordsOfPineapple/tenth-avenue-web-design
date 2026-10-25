@@ -24,7 +24,7 @@
     <a class="phone" href="tel:+61430535096">(+61) 430 535 096</a>
     <a class="contact-email" href="mailto:studio@tenthavenuewebdesign.com">studio@tenthavenuewebdesign.com</a>
 </p>
-  <form id="contact-form">
+  <form id="contact-form" method="post" action="/api/contact">
     <label>Name<input name="name" autocomplete="name" maxlength="100" required></label>
     <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" required></label>
     <label>Phone<input name="phone" type="tel" autocomplete="tel" maxlength="80"></label>
@@ -33,11 +33,12 @@
     <div class="form-honeypot" aria-hidden="true">
       <label>Website<input name="website" tabindex="-1" autocomplete="off" maxlength="300"></label>
     </div>
-    <button class="button" type="submit">Start the conversation</button>
-    <p class="status" id="form-status" role="status" aria-live="polite"></p>
+    <p>We use your details to respond to your enquiry and discuss your project. <a href="/privacy">Read our privacy policy</a>.</p>
+    <button class="button" type="submit" disabled>Start the conversation</button>
+    <p class="status" id="form-status" role="status" aria-live="polite">The form needs JavaScript to load. If sending is unavailable, please call <a href="tel:+61430535096">0430 535 096</a>.</p>
   </form>
 </main>
-<footer><strong>Tenth Avenue Web Design</strong> · Budgewoi, NSW 2262 · <a href="tel:+61430535096">(+61) 430 535 096</a> · <a href="/privacy">Privacy</a></footer>
+<footer><strong>Tenth Avenue Web Design</strong> · Budgewoi, NSW 2262 · <a href="tel:+61430535096">(+61) 430 535 096</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></footer>
 <script type="module" src="/contact.js"></script>
 </body>
 </html>

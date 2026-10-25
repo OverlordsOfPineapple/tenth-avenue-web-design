@@ -27,6 +27,14 @@ for (const file of files) {
   if (duplicates.length) errors.push(`${file}: duplicate ids: ${[...new Set(duplicates)].join(", ")}`);
   if (/<style(?:\s|>)/i.test(html)) errors.push(`${file}: inline style block found`);
 
+  // Enquiries must never fall back to placing personal information in a URL.
+  for (const [, attributes, contents] of html.matchAll(/<form\b([^>]*)>([\s\S]*?)<\/form>/gi)) {
+    if (!/\bmethod=["']post["']/i.test(attributes)) errors.push(`${file}: form must explicitly use POST`);
+    if (!/\baction=["']\/api\/(contact|quote)["']/i.test(attributes)) errors.push(`${file}: missing enquiry endpoint`);
+    if (!/<button[^>]*type=["']submit["'][^>]*\bdisabled\b/i.test(contents)) errors.push(`${file}: submit must remain disabled until JavaScript binds`);
+    if (!/href=["']\/privacy["']/.test(contents)) errors.push(`${file}: missing form privacy link`);
+  }
+
   const inlineExecutable = [...html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)]
     .filter((match) => !/\bsrc=/i.test(match[1]))
     .filter((match) => !/type=["']application\/ld\+json["']/i.test(match[1]));
