@@ -1,7 +1,9 @@
 import { execFileSync } from "node:child_process";
 
-// The approved pre-PIN-8 state. Never silently rebaseline this check.
-const baseline = "50eda527c6482a570b166c6f3f278272c870b938";
+// Wolf approved PR #14 policy links and form notices on 25 October 2026.
+// This exact frontend tree includes those additions and preserves the artwork/layout.
+// Never silently rebaseline this check.
+const baseline = "dd2825ee19bc202aa29c60a508f05e0a5236aa7d";
 const run = (...args) => execFileSync("git", args, { encoding: "utf8" });
 try {
   run("cat-file", "-e", `${baseline}^{commit}`);
