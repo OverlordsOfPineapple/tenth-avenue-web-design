@@ -1,9 +1,12 @@
 import { execFileSync } from "node:child_process";
 
 // Wolf approved PR #14 policy links and form notices on 25 October 2026.
-// This exact frontend tree includes those additions and preserves the artwork/layout.
-// Never silently rebaseline this check.
-const baseline = "dd2825ee19bc202aa29c60a508f05e0a5236aa7d";
+// Wolf then reviewed the PR #15 homepage typography preview in his browser
+// ("looks good on my browser") and explicitly approved finalising PR #15.
+// Approval applies to Barlow Condensed/Montserrat typography ONLY: preserve
+// Lamborghini image assets, hero placement, responsive rules, and layout.
+// Pin the exact approved frontend tree; do not silently rebaseline this check.
+const baseline = "d4f40cc87620404aa0327b3e134492039f179263";
 const run = (...args) => execFileSync("git", args, { encoding: "utf8" });
 try {
   run("cat-file", "-e", `${baseline}^{commit}`);
