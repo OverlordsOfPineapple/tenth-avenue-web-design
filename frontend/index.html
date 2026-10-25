@@ -165,6 +165,8 @@
       </section>
     </main>
 
+    <footer class="policy-links"><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></footer>
+
     <dialog class="quote-dialog" id="quote-dialog" aria-labelledby="quote-title">
       <div class="quote-panel">
         <button class="dialog-close" type="button" data-close-dialog aria-label="Close quote form">×</button>
@@ -172,7 +174,7 @@
         <h2 id="quote-title">Tell us about your website</h2>
         <p class="dialog-copy">Share your goals, required features and preferred launch window. We’ll turn the brief into a clear next step.</p>
 
-        <form class="quote-form" id="quote-form">
+        <form class="quote-form" id="quote-form" method="post" action="/api/quote">
           <label>Name<input name="name" autocomplete="name" maxlength="100" required></label>
           <label>Email<input name="email" type="email" autocomplete="email" maxlength="160" required></label>
           <label>Phone<input name="phone" type="tel" autocomplete="tel" maxlength="80"></label>
@@ -181,10 +183,11 @@
           <div class="form-honeypot" aria-hidden="true">
             <label>Website<input name="website" tabindex="-1" autocomplete="off" maxlength="300"></label>
           </div>
-          <button class="button button-primary" type="submit">
+          <p>We use your details to respond to your enquiry and discuss your project. <a href="/privacy">Read our privacy policy</a>.</p>
+          <button class="button button-primary" type="submit" disabled>
             Send enquiry <span aria-hidden="true">→</span>
           </button>
-          <p class="form-status" id="quote-status" role="status" aria-live="polite"></p>
+          <p class="form-status" id="quote-status" role="status" aria-live="polite">The form needs JavaScript to load. If sending is unavailable, please call <a href="tel:+61430535096">0430 535 096</a>.</p>
         </form>
       </div>
     </dialog>
