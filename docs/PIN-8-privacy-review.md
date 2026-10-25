@@ -1,6 +1,8 @@
 # PIN-8 privacy and business details — proposed completion
 
-25 October 2026. Draft for owner review; not launch approval.
+25 October 2026. Wolf approved the policy links, form notices and publication of PR #14 after checks. The expanded privacy wording below remains a draft; this is not full PIN-8 sign-off.
+
+Owner response: business registration is “Not registered yet / unsure”. Legal operator and ABN remain unconfirmed.
 
 ## Implemented on this branch
 
