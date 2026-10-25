@@ -1,13 +1,13 @@
 import { execFileSync } from "node:child_process";
 
 // Wolf approved PR #14 policy links and form notices on 25 October 2026.
-// Wolf then reviewed the PR #15 homepage typography preview in his browser
-// ("looks good on my browser") and explicitly approved finalising PR #15.
-// Approval applies to Barlow Condensed/Montserrat typography ONLY: preserve
-// Lamborghini image assets, hero placement, responsive rules, and layout.
-// Pin the exact approved frontend tree to the permanent squash-merge commit
-// on main, not a temporary PR branch SHA; do not silently rebaseline this check.
-const baseline = "cff29dcfb6280fe696c166db68aed5fc8e040407";
+// Wolf explicitly requested restoration of the original Inter/system homepage
+// typography on 25 October 2026, superseding PR #15's font selection.
+// The reference below is the exact permanent main commit immediately before
+// PR #15; the rollback changes only the four font-related frontend files.
+// Preserve Lamborghini assets, positioning, colours, content and layout.
+// Never silently rebaseline this check for any subsequent frontend changes.
+const baseline = "cf4647838ccf8505f74fc6c3201b4d93f177f74c";
 const run = (...args) => execFileSync("git", args, { encoding: "utf8" });
 try {
   run("cat-file", "-e", `${baseline}^{commit}`);
